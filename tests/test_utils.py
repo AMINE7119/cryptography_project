@@ -21,10 +21,11 @@ class TestInputValidator:
         # Textes valides
         assert self.validator.validate_text("Hello") is True
         assert self.validator.validate_text("123") is True
-        assert self.validator.validate_text(" ") is True
-        
+        assert self.validator.validate_text("A B C") is True  # Texte avec espaces mais contenu
+
         # Textes invalides
         assert self.validator.validate_text("") is False
+        assert self.validator.validate_text("   ") is False  # Espaces uniquement
         assert self.validator.validate_text(None) is False
         assert self.validator.validate_text(123) is False
     

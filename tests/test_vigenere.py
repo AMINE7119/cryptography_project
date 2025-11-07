@@ -36,7 +36,7 @@ class TestVigenereCipher:
         assert self.cipher.encrypt("hello", "key") == "RIJVS"
         
         # Test avec suppression des espaces
-        assert self.cipher.encrypt("HELLO WORLD", "KEY") == "RIJVSNUVJN"
+        assert self.cipher.encrypt("HELLO WORLD", "KEY") == "RIJVSUYVJN"
         
         # Test avec une clé plus longue
         assert self.cipher.encrypt("HELLO", "SECRETKEY") == "ZINCS"
@@ -50,7 +50,7 @@ class TestVigenereCipher:
         assert self.cipher.decrypt("rijvs", "key") == "HELLO"
         
         # Test avec suppression des espaces
-        assert self.cipher.decrypt("RIJVS NUVJN", "KEY") == "HELLOWORLD"
+        assert self.cipher.decrypt("RIJVS UYVJN", "KEY") == "HELLOWORLD"
         
         # Test avec une clé plus longue
         assert self.cipher.decrypt("ZINCS", "SECRETKEY") == "HELLO"
